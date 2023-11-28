@@ -1,7 +1,4 @@
 # vue-create-el
-<<<<<<< HEAD
-动态生成表单
-=======
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -63,4 +60,3 @@ But it's still recommended to test the production build with `test:e2e` before d
 npm run build
 npm run test:e2e
 ```
->>>>>>> master
