@@ -1,0 +1,284 @@
+{
+    "configs": {
+        "title": {
+            "name": "名称",
+            "form": {
+                "type": "text"
+            },
+            "value": "自动后退"
+        },
+        "contidion": {
+            "name": "条件",
+            "form": {
+                "type": "radio",
+                "options": {
+                    "gift": "礼物",
+                    "chat": "弹幕",
+                    "like": "点赞",
+                    "welcome": "欢迎"
+                }
+            },
+            "value": "gift"
+        },
+        "gift": {
+            "name": "礼物",
+            "form": {
+                "type": "select",
+                "bind": {
+                    "tag": "contidion",
+                    "value": "gift"
+                }
+            },
+            "value": ""
+        },
+        "chat": {
+            "name": "弹幕",
+            "form": {
+                "type": "text",
+                "bind": {
+                    "tag": "contidion",
+                    "value": "text"
+                }
+            },
+            "rules": [
+                {
+                    "trigger": [
+                        "bluer"
+                    ]
+                }
+            ],
+            "value": ""
+        },
+        "welcome": {
+            "name": "欢迎",
+            "form": {
+                "type": "text",
+                "bind": {
+                    "tag": "contidion",
+                    "value": "text"
+                }
+            },
+            "value": ""
+        },
+        "tigger": {
+            "name": "触发模式",
+            "form": {
+                "type": "radio",
+                "options": {
+                    "order": "顺序触发",
+                    "together": "同时触发",
+                    "random": "随机触发"
+                }
+            },
+            "value": "order"
+        },
+        "action": {
+            "type": "事件类型",
+            "form": {
+                "type": "select",
+                "options": {
+                    "key": "按键",
+                    "mouse": "鼠标",
+                    "audio": "音频",
+                    "video": "视频",
+                    "order": "指令"
+                }
+            },
+            "value": "order"
+        },
+        "keycode": {
+            "name": "按键",
+            "form": {
+                "type": "hotkey",
+                "mode": true
+            },
+            "bind": {
+                "inner": true,
+                "tag": "action",
+                "value": [
+                    "keycode"
+                ]
+            },
+            "value": []
+        },
+        "keytime": {
+            "name": "按键时长",
+            "form": {
+                "type": "number"
+            },
+            "value": 200,
+            "bind": {
+                "inner": true,
+                "tag": "action",
+                "value": [
+                    "keycode"
+                ]
+            },
+            "tips": "按键按住时长，部分游戏操作可能需要持续按住按键。单位：毫秒"
+        },
+        "delay": {
+            "name": "间隔",
+            "form": {
+                "type": "number"
+            },
+            "value": 2000,
+            "bind": {
+                "inner": true,
+                "tag": "action",
+                "value": [
+                    "keycode"
+                ]
+            },
+            "tips": "按钮执行间隔，例如按下G之后，等游戏的G执行。单位：毫秒"
+        },
+        "mouse": {
+            "name": "鼠标事件",
+            "form": {
+                "type": "select",
+                "options": {
+                    "move-up": "向上移动",
+                    "move-down": "向下移动",
+                    "move-left": "向左移动",
+                    "move-right": "向右移动",
+                    "frequency-round": "转圈",
+                    "frequency-shake": "上下晃动",
+                    "click-left": "左键点击",
+                    "click-right": "右键点击",
+                    "click-middle": "中间键点击",
+                    "click-double": "双击",
+                    "press-left": "按住左键",
+                    "press-right": "按住右键",
+                    "press-middle": "按住中间键"
+                }
+            },
+            "bind": {
+                "inner": true,
+                "tag": "action",
+                "value": [
+                    "mouse"
+                ]
+            },
+            "value": "round"
+        },
+        "duration": {
+            "name": "持续时间",
+            "form": {
+                "type": "number"
+            },
+            "bind": [
+                {
+                    "inner": true,
+                    "tag": "action",
+                    "value": [
+                        "mouse"
+                    ]
+                },
+                {
+                    "inner": true,
+                    "tag": "mouse",
+                    "value": [
+                        "frequency-round",
+                        "frequency-shake",
+                        "press-left",
+                        "press-right",
+                        "press-middle"
+                    ]
+                }
+            ],
+            "value": 1200
+        },
+        "range": {
+            "name": "幅度",
+            "form": {
+                "type": "slider",
+                "min": 1,
+                "max": 600
+            },
+            "bind": [
+                {
+                    "inner": true,
+                    "tag": "action",
+                    "value": [
+                        "mouse"
+                    ]
+                },
+                {
+                    "inner": true,
+                    "tag": "mouse",
+                    "value": [
+                        "frequency-shake"
+                    ]
+                }
+            ],
+            "value": 300
+        },
+        "speed": {
+            "name": "速度",
+            "form": {
+                "type": "slider",
+                "min": 1,
+                "max": 100
+            },
+            "bind": [
+                {
+                    "inner": true,
+                    "tag": "action",
+                    "value": [
+                        "mouse"
+                    ]
+                },
+                {
+                    "inner": true,
+                    "tag": "mouse",
+                    "value": [
+                        "move-up",
+                        "move-down",
+                        "move-left",
+                        "move-right",
+                        "frequency-round",
+                        "frequency-shake"
+                    ]
+                }
+            ],
+            "value": 10
+        }
+    },
+    "datas": {
+        "永杰无间": [
+            {
+                "name": "自动后退",
+                "contidion": "gift",
+                "gift": "none",
+                "chat": "退退退！",
+                "tigger": "order",
+                "tiggerList": [
+                    {
+                        "id": "1",
+                        "type": "按键",
+                        "choice": "ctrl+1"
+                    },
+                    {
+                        "id": "2",
+                        "type": "视频",
+                        "choice": "骑马舞"
+                    }
+                ]
+            },
+            {
+                "name": "自动切拳",
+                "contidion": "chat",
+                "gift": "none",
+                "chat": "我要切拳头了"
+            },
+            {
+                "name": "自动跳跃",
+                "contidion": "like",
+                "gift": "none",
+                "chat": ""
+            }
+        ],
+        "我的世界": [],
+        "原神": [],
+        "王者荣耀": []
+    }
+}
