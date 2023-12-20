@@ -1,5 +1,5 @@
 <template>
-    <el-form-item v-show="true">
+    <el-form-item v-show="visiabled">
         <template #label>
             <div class="config-title">
                 <span>{{ config.name }}</span>
@@ -54,22 +54,22 @@
 </template>
 
 <script lang='ts' setup>
-import { computed, ref, inject } from "vue";
+import { computed, ref, inject, onMounted } from "vue";
 import { useConfigOption } from "../util/auto-options";
 import { useConfigVisiabled } from "../util/visiabled";
 import { useFiltersHtmlstrip } from "../util/htmlstrip";
 
 interface DynamicFormItemProps {
     modelValue: any; // 表单子项的值
-    config: any;
-    prop: any;
+    config: Record<string, any>;
+    prop: string;
 }
 
 defineOptions({ name: 'DynamicFormItem' });
 const props = defineProps<DynamicFormItemProps>();
 const emits = defineEmits(["update:modelValue"]);
 const configs = inject("configs");
-const configValues = inject("configValues");
+const configValues = inject("configValues") as Record<string, any>;
 
 const $value = computed({
     get() {
@@ -83,7 +83,7 @@ const $value = computed({
 // 生成options值
 const { options } = useConfigOption(props.config);
 // 生成隐藏值
-const { visiabled } = useConfigVisiabled(props.config, $value.value);
+const { visiabled } = useConfigVisiabled(props.config, configValues);
 
 const form = computed(() => props.config.form);
 const loading = ref(false); // 先写着

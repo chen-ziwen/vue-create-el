@@ -20,16 +20,18 @@ import configs from "./configs";
 // 通过双向绑定 每当表单项中的值发生改变 都会去改变data内部的值 (实时更新)
 // 优点 更灵活 性能比之前要好非常多
 
+// data为空，选中某一项 直接将对应的值赋值给data即可
 const data = reactive({
-    chat: "默认的聊天内容",
+    title: "测试项目",
+    condition: "chat",
+    gift: "小心心",
+    chat: "默认聊天内容",
     date: Date.now(), // 如果赋值就是初始化 不赋值则为空
     date2: new Date(Date.now() + 359900000),
 });
 
 watch(data, () => {
-    // 表单一旦更新就会被监听到
     console.log("data ===>", data);
-
 }, { deep: true })
 </script>
 

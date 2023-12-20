@@ -27,7 +27,8 @@ const props = withDefaults(defineProps<DynamicFormProps>(), {
 });
 const emits = defineEmits(["update:modelValue"]);
 provide("configs", props.configs);
-provide("configValues", props.modelValue)
+provide("configValues", props.modelValue);
+
 
 // 当渲染表单项的值修改时 更新传入的表单对象
 const $value = computed({
