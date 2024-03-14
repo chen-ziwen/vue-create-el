@@ -6,7 +6,7 @@ interface IOptions {
     value: any;
 }
 export function useConfigOption(config: any) {
-    const whitelist = ['select', 'checkbox', 'radio', 'radiobtn', 'colorgroup'];
+    const whitelist = ['select', 'checkbox', 'radio', 'radiobtn'];
     if (!whitelist.includes(config.form.type)) {
         return {};
     };
@@ -38,7 +38,6 @@ export function useConfigOption(config: any) {
             }
         } else if (config.form.using) {
             loading.value = true;
-            // using判断
         }
 
 

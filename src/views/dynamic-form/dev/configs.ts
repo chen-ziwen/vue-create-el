@@ -3,12 +3,13 @@ export default {
     title: {
         name: "名称",
         form: {
-            type: "textarea",
-            placeholder: "哈哈哈哈",
+            type: "text",
+            placeholder: "请输入名称",
             maxlength: 5,
             blur: true
         },
         tips: "这里是名称",
+        value: "chiko"
     },
     condition: {
         name: "条件",
@@ -21,6 +22,7 @@ export default {
                 welcome: "欢迎"
             }
         },
+        value: "chat"
     },
     gift: {
         name: "礼物",
@@ -32,6 +34,7 @@ export default {
             },
             bind: { tag: "condition", value: "gift" }
         },
+        value: "flower"
     },
     chat: {
         name: "聊天",
@@ -40,6 +43,7 @@ export default {
             bind: { tag: "condition", value: "chat" },
             blur: false,
         },
+        value: "hello"
     },
     date: {
         name: "日期",
@@ -47,6 +51,6 @@ export default {
             type: "date",
             subtype: "date"
         },
+        value: "2022-01-01"
     }
-
 }

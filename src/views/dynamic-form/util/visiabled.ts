@@ -5,7 +5,7 @@ import { computed } from "vue";
  * @param configsValue 所有配置项的值
  * @returns visiabled 布尔值 此配置项是否展示
  */
-export function useConfigVisiabled(config: any, configsValue: Record<string, any>) {
+export function useConfigVisiabled(config: any, configsValue: any) {
 
     const visiabled = computed(() => {
         if (!config.form.bind) {

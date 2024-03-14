@@ -30,7 +30,6 @@ provide("configs", props.configs);
 provide("configValues", props.modelValue);
 
 
-// 当渲染表单项的值修改时 更新传入的表单对象
 const $value = computed({
   get() {
     return props.modelValue;
