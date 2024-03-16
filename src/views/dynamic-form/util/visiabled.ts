@@ -83,9 +83,8 @@ export function useConfigVisiabled(config: any, configsValue: any) {
                 }
             }
         }
-
+        
         return !or;
-
     })
 
     return {

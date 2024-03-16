@@ -7,7 +7,7 @@
                     <template #content>
                         <div v-html="useFiltersHtmlstrip(config.tips, {}, true)"></div>
                     </template>
-                    <i class="iconfont icon-help"></i>
+                    <i class="iconfont icon-help">666</i>
                 </el-tooltip>
             </div>
         </template>
@@ -82,18 +82,7 @@ const { visiabled } = useConfigVisiabled(props.config, configValues);
 
 const form = computed(() => props.config.form);
 
-function colorChange(color: string) {
-    $value.value = color;
-}
-
-const parseJson = (value: any) => {
-    if (typeof value === "object" && value !== null) {
-        return structuredClone(value);
-    }
-    return value;
-};
-
-const $bvalue = form.value.blur ? ref(parseJson($value.value)) : $value;
+const $bvalue = form.value.blur ? ref(structuredClone($value.value)) : $value;
 const blur = () => {
     if (form.value.blur) {
         $value.value = $bvalue.value;

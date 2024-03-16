@@ -42,9 +42,6 @@ export function useConfigOption(config: any) {
 
 
     // fetch方法
-
-    // rebuild方法
-
     return {
         options
     }

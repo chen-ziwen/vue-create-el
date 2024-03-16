@@ -1,5 +1,6 @@
+import { useCreateDefaultValue } from "../util/default-value";
 
-export default {
+export const configs = {
     title: {
         name: "名称",
         form: {
@@ -54,3 +55,5 @@ export default {
         value: "2022-01-01"
     }
 }
+
+export const configsValue = useCreateDefaultValue(configs);
